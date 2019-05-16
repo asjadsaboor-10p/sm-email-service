@@ -1,16 +1,16 @@
 import * as Router from 'koa-router';
 import * as compose from 'koa-compose';
 import config from '../../config/index';
-import { ping } from '../controllers/ping';
+import { sendEmail } from '../controllers/email';
 
 const router = new Router({
-  prefix: `${config.api.baseURL}/ping`,
+  prefix: `${config.api.baseURL}/email`,
 });
 
 /**
- * @api       {get} /ping ping test
- * @apiName   Ping test
- * @apiGroup  Ping
+ * @api       {post} /email send email
+ * @apiName   Send Email
+ * @apiGroup  Email
  * @apiSuccessExample Success-Response:
  *   HTTP/1.1 200 OK
  *   {
@@ -18,10 +18,9 @@ const router = new Router({
  *       "status": 200,
  *       "message": "success"
  *     }
- *     "data": "pong!"
  *   }
  */
-router.get('/', ping);
+router.post('/', sendEmail);
 
 const routes = router.routes();
 export default compose([routes]);

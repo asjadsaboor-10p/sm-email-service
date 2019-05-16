@@ -8,7 +8,7 @@ const handler = async (ctx: Context, next: () => void) => {
   ctx.body = {
     meta: {
       status: ctx.status,
-      message: ctx.state.message || 'success',
+      message: ctx.state.message,
     },
     data: ctx.state.data,
   };

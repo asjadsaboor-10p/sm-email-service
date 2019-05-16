@@ -11,8 +11,8 @@ const isProduction = config.env === 'production';
 const handler = async (ctx: Context, next: () => void) => {
   try {
     await next();
-    if (!ctx.state.data) {
-      throw Boom.notFound('API not found');
+    if (ctx.state.message !== 'success') {
+      throw Boom.notFound('Invalid Request');
     }
   } catch (err) {
     let metaData: IMetaData;
