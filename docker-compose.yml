@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: sm-email-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - './config/.env'
+    volumes:
+      - './config:/app/config'
+      - './src:/app/src'
+    ports:
+      - 4001:4001
+      # - 9229:9229
+    entrypoint:
+      - ./entrypoint.sh
+      - ./node_modules/.bin/nodemon
+      #- --inspect-brk=0.0.0.0 , break before code starts
+      #- --inspect=0.0.0.0
+      - ./bin/server

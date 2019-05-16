@@ -1,0 +1,53 @@
+{
+  "name": "sm-email-service",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A simple email service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/server",
+    "start:docker": "docker-compose up -d",
+    "stop:docker": "docker-compose down",
+    "build:docker": "docker-compose build",
+    "logs": "docker logs -f sm-email-service",
+    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' ",
+    "lint:fix": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' --fix",
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json}\"",
+    "format:fix:all": "pretty-quick",
+    "format:fix:staged": "pretty-quick --staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asjadsaboor/sm-email-service.git"
+  },
+  "keywords": [
+    "email"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "7.3.0",
+    "convict": "5.0.0",
+    "joi": "14.3.1",
+    "koa": "2.7.0",
+    "koa-bodyparser": "4.2.1",
+    "koa-helmet": "4.1.0",
+    "koa-json": "2.0.2",
+    "koa-router": "7.4.0",
+    "koa2-cors": "2.0.6"
+  },
+  "devDependencies": {
+    "@types/boom": "7.2.1",
+    "@types/convict": "4.2.1",
+    "@types/joi": "14.3.3",
+    "@types/koa": "2.0.48",
+    "@types/koa-bodyparser": "4.2.2",
+    "@types/koa-helmet": "3.1.2",
+    "@types/koa-json": "2.0.18",
+    "@types/koa-router": "7.0.40",
+    "@types/koa2-cors": "2.0.1",
+    "nodemon": "1.19.0",
+    "ts-node": "8.1.0",
+    "typescript": "3.4.5"
+  }
+}
