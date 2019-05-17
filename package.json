@@ -62,6 +62,7 @@
     "prettier": "^1.17.1",
     "pretty-quick": "^1.10.0",
     "ts-node": "8.1.0",
+    "tslint": "^5.16.0",
     "typescript": "3.4.5"
   },
   "apidoc": {

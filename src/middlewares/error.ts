@@ -33,7 +33,7 @@ const handler = async (ctx: Context, next: () => void) => {
       meta: metaData,
     };
     // TODO: implement logger
-    console.log(err);
+    console.error(err);
   }
 };
 

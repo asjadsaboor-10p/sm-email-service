@@ -20,7 +20,6 @@ export class MailGun extends EmailTransport {
       headers: this.defaultHeaders,
       form: this.createRequestBody(payload),
     };
-    console.log('sending  email');
     await rp.post(options);
     return { success: true };
   }

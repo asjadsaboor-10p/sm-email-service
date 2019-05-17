@@ -21,8 +21,8 @@ app.use(koaBodyparser());
 app.use(
   cors({
     // TODO
-    //origin: ,
-    //allowHeaders: [],
+    // origin: ,
+    // allowHeaders: [],
     allowMethods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
   }),
 );
