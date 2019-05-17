@@ -34,7 +34,9 @@
     "koa-helmet": "4.1.0",
     "koa-json": "2.0.2",
     "koa-router": "7.4.0",
-    "koa2-cors": "2.0.6"
+    "koa2-cors": "2.0.6",
+    "request": "2.88.0",
+    "request-promise-native": "1.0.7"
   },
   "devDependencies": {
     "@types/boom": "7.2.1",
@@ -48,6 +50,8 @@
     "@types/koa2-cors": "2.0.1",
     "nodemon": "1.19.0",
     "ts-node": "8.1.0",
-    "typescript": "3.4.5"
+    "typescript": "3.4.5",
+    "@types/request": "2.48.1",
+    "@types/request-promise-native": "1.0.16"
   }
 }

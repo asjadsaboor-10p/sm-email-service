@@ -8,6 +8,12 @@ export interface IConfig {
   api: {
     baseURL: string;
   };
+  email: {
+    fromEmail: string;
+    sendgridAPIKey: string;
+    mailgunAPIKey: string;
+    mailgunDOMAIN: string;
+  };
 }
 
 const config = convict<IConfig>({
@@ -29,6 +35,28 @@ const config = convict<IConfig>({
       format: String,
       env: 'API_BASEURL',
       default: '/api/v1',
+    },
+  },
+  email: {
+    fromEmail: {
+      format: String,
+      env: 'FROM_EMAIL',
+      default: 'sm-email-service@yopmail.com',
+    },
+    sendgridAPIKey: {
+      format: String,
+      env: 'API_KEY_SENDGRID',
+      default: '',
+    },
+    mailgunAPIKey: {
+      format: String,
+      env: 'API_KEY_MAILGUN',
+      default: '',
+    },
+    mailgunDOMAIN: {
+      format: String,
+      env: 'MAILGUN_DOMAIN',
+      default: '',
     },
   },
 });

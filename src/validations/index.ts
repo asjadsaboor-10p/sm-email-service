@@ -23,7 +23,6 @@ export const validate = <T>(
     ? Object.assign({}, defaultOptions, options)
     : defaultOptions;
   const { error } = joiValidate(payload, schema, joiValidationOptions);
-  console.log('error', error);
   if (error) {
     throw error;
   }
