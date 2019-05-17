@@ -34,7 +34,7 @@ export const sendEmail: Joi.SchemaMap = {
     .label('bcc email'),
   subject: Joi.string()
     .required()
-    .max(255),
+    .max(250),
   body: Joi.string()
     .required()
     .max(5000),
