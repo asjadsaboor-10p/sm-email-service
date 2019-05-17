@@ -1,11 +1,16 @@
 import config from '../../config/index';
 import { IEmailRequest, IEmailTransportRequest } from '../interfaces/index';
-import * as joiSchema from '../validations/schemas/index';
-import { validate } from '../validations/index';
+import { validate, validateEmailShouldBeUnique } from '../validations/index';
 import * as emailTransportService from './email-transport';
+import * as joiSchema from '../validations/schemas/index';
 
 export const sendEmail = async (payload: IEmailRequest): Promise<void> => {
-  validate(payload, joiSchema.sendEmail);
+  payload = validate(payload, joiSchema.sendEmail);
+
+  // Joi cannot handle this validation
+  // Email should be unique accross to,cc and  bcc
+  validateEmailShouldBeUnique(payload.to, payload.cc, payload.bcc);
+
   const emailTransportPayload: IEmailTransportRequest = {
     from: config.email.fromEmail,
     ...payload,

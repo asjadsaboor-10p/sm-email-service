@@ -9,7 +9,7 @@ export const sendEmail = async (payload: IEmailTransportRequest): Promise<void> 
     const sendgrid = new SendGrid(config.email.sendgridAPIKey);
     await sendgrid.sendEmail(payload);
   } catch (error) {
-    if (error.output.statusCode >= 500) {
+    if (error.output && error.output.statusCode >= 500) {
       await sendEmailFromFailover(payload);
     } else {
       throw error;

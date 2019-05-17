@@ -11,6 +11,7 @@ services:
     volumes:
       - './config:/app/config'
       - './src:/app/src'
+      - './doc:/app/doc'
     ports:
       - 4001:4001
       # - 9229:9229

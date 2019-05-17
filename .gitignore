@@ -41,3 +41,6 @@ config/.env
 
 # next.js build output
 .next
+
+#docs
+doc

@@ -11,6 +11,13 @@ const router = new Router({
  * @api       {post} /email send email
  * @apiName   Send Email
  * @apiGroup  Email
+ *
+ * @apiParam (Body) {String[]} to email addresses
+ * @apiParam (Body) {String[]} [cc] cc email addresses
+ * @apiParam (Body) {String[]} [bcc] to email addresses
+ * @apiParam (Body) {String} [subject] email subject
+ * @apiParam (Body) {String} [body] email body in text
+ *
  * @apiSuccessExample Success-Response:
  *   HTTP/1.1 200 OK
  *   {

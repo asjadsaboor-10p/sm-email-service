@@ -3,6 +3,8 @@ import * as helmet from 'koa-helmet';
 import * as koaBodyparser from 'koa-bodyparser';
 import * as cors from 'koa2-cors';
 import * as jsonMiddleware from 'koa-json';
+import * as staticServe from 'koa-static-server';
+import * as path from 'path';
 import config from '../config';
 
 // middlewares
@@ -10,7 +12,10 @@ import routeMiddleware from './routes/index';
 import errorMiddleware from './middlewares/error';
 import responseMiddleware from './middlewares/response';
 
+const docPath = path.join(__dirname, '../doc');
 const app = new Koa();
+
+app.use(staticServe({ rootDir: docPath, rootPath: '/api/docs' }));
 app.use(helmet());
 app.use(koaBodyparser());
 app.use(
