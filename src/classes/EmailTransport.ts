@@ -1,4 +1,5 @@
 import { IEmailTransportRequest, IEmailTransportResponse } from '../interfaces/index';
+import * as Boom from 'boom';
 
 export abstract class EmailTransport {
   public apiKey: string;
@@ -15,5 +16,8 @@ export abstract class EmailTransport {
 
   public abstract createRequestBody(payload: IEmailTransportRequest): Object;
 
-  public abstract handleErrorResponse(error: any): never;
+  public boomifyError(error: any): never {
+    Boom.boomify(error, { statusCode: error.statusCode });
+    throw error;
+  }
 }

@@ -20,7 +20,7 @@ export class MailGun extends EmailTransport {
       headers: this.defaultHeaders,
       form: this.createRequestBody(payload),
     };
-    await rp.post(options);
+    await rp.post(options).catch(this.boomifyError);
     return { success: true };
   }
 
@@ -33,11 +33,5 @@ export class MailGun extends EmailTransport {
       subject: payload.subject,
       text: payload.body,
     };
-  }
-
-  public handleErrorResponse(error: any): never {
-    // log error
-    Boom.boomify(error, { statusCode: error.statusCode });
-    throw error;
   }
 }

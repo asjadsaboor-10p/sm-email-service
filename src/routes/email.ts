@@ -8,7 +8,7 @@ const router = new Router({
 });
 
 /**
- * @api       {post} /email send email
+ * @api       {post} /email/send send email
  * @apiName   Send Email
  * @apiGroup  Email
  *
@@ -27,7 +27,7 @@ const router = new Router({
  *     }
  *   }
  */
-router.post('/', sendEmail);
+router.post('/send', sendEmail);
 
 const routes = router.routes();
 export default compose([routes]);

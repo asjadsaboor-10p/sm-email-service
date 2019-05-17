@@ -1,7 +1,7 @@
 import config from '../../config/index';
 import { IEmailRequest, IEmailTransportRequest } from '../interfaces/index';
 import { validate, validateEmailShouldBeUnique } from '../validations/index';
-import * as emailTransportService from './email-transport';
+import * as emailTransportService from './email-server-manager';
 import * as joiSchema from '../validations/schemas/index';
 
 export const sendEmail = async (payload: IEmailRequest): Promise<void> => {

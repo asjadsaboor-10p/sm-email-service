@@ -21,7 +21,7 @@ export class SendGrid extends EmailTransport {
       headers: this.defaultHeaders,
       body: this.createRequestBody(payload),
     };
-    await rp.post(options).catch(this.handleErrorResponse);
+    await rp.post(options).catch(this.boomifyError);
     return { success: true };
   }
 
@@ -55,11 +55,5 @@ export class SendGrid extends EmailTransport {
         },
       ],
     };
-  }
-
-  public handleErrorResponse(error: any): never {
-    // Log error
-    Boom.boomify(error, { statusCode: error.statusCode });
-    throw error;
   }
 }
