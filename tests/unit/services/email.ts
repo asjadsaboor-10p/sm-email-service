@@ -1,6 +1,6 @@
-import * as Boom from 'boom';
-import * as Joi from 'joi';
 import { sendEmail } from '../../../src/services/email';
+import * as emailServerManager from '../../../src/services/email-server-manager';
+import { badRequest } from 'boom';
 
 describe('Email Service', () => {
   describe('sendEmail method', () => {
@@ -97,6 +97,80 @@ describe('Email Service', () => {
       const error = new Error('child "body" fails because [body is required]');
       error.name = 'ValidationError';
       return expect(sendEmail(payload)).rejects.toEqual(error);
+    });
+
+    test('should throw joi validation error if subject is greater than  250 char', async () => {
+      const payload: any = {
+        to: ['a1@yopmail.com'],
+        cc: ['a2@yopmail.com'],
+        bcc: ['a3@yopmail.com'],
+        subject: `test subject test subject test subject test subject test subject test subject test subject
+        test subject test subject test subject test subject test subject test subject test subject
+        test subject test subject test subject test subject test subject test subject test subject
+        test subject test subject test subject test subject test subject test subject test subject
+        test subject test subject test subject test subject test subject test subject test subject `,
+      };
+      const error = new Error(
+        'child "subject" fails because [subject length must be less than or equal to 250 characters long]',
+      );
+      error.name = 'ValidationError';
+      return expect(sendEmail(payload)).rejects.toEqual(error);
+    });
+
+    test('should throw error if there are duplicate email in to and  cc', async () => {
+      const payload: any = {
+        to: ['a1@yopmail.com'],
+        cc: ['a1@yopmail.com'],
+        bcc: ['a2@yopmail.com'],
+        subject: 'test subject',
+        body: 'asda',
+      };
+      return expect(sendEmail(payload)).rejects.toEqual(
+        badRequest('Emails should be unique between to,cc and bcc'),
+      );
+    });
+
+    test('should throw error if there are duplicate email in to and  bcc', async () => {
+      const payload: any = {
+        to: ['a1@yopmail.com'],
+        cc: ['a2@yopmail.com'],
+        bcc: ['a1@yopmail.com'],
+        subject: 'test subject',
+        body: 'asda',
+      };
+      return expect(sendEmail(payload)).rejects.toEqual(
+        badRequest('Emails should be unique between to,cc and bcc'),
+      );
+    });
+
+    test('should throw error if there are duplicate email in to ,cc and  bcc', async () => {
+      const payload: any = {
+        to: ['a1@yopmail.com'],
+        cc: ['a1@yopmail.com'],
+        bcc: ['a1@yopmail.com'],
+        subject: 'test subject',
+        body: 'asda',
+      };
+      return expect(sendEmail(payload)).rejects.toEqual(
+        badRequest('Emails should be unique between to,cc and bcc'),
+      );
+    });
+
+    test('should invoke sendEmail method of email server manager if payload is okay', async () => {
+      Object.defineProperty(emailServerManager, 'sendEmail', {
+        value: jest.fn().mockImplementation(() => Promise.resolve({ success: true })),
+      });
+      const payload: any = {
+        to: ['a1@yopmail.com'],
+        cc: ['a2@yopmail.com'],
+        bcc: ['a3@yopmail.com'],
+        subject: 'test subject',
+        body: 'asda',
+      };
+      const spy = jest.spyOn(emailServerManager, 'sendEmail');
+      const sendingEmail = await sendEmail(payload);
+      expect(sendingEmail).toBe(undefined);
+      return expect(spy).toHaveBeenCalled;
     });
   });
 });

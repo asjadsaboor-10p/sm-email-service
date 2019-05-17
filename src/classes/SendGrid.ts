@@ -1,7 +1,6 @@
 import { IEmailTransportRequest, IEmailTransportResponse } from '../interfaces/index';
 import { EmailTransport } from './EmailTransport';
 import * as rp from 'request-promise-native';
-import * as Boom from 'boom';
 
 export class SendGrid extends EmailTransport {
   constructor(apiKey: string) {
