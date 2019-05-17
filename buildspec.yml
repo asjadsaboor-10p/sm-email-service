@@ -9,7 +9,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=961553472565.dkr.ecr.us-east-1.amazonaws.com/sm-email-service:latest
+      - REPOSITORY_URI=961553472565.dkr.ecr.us-east-1.amazonaws.com/sm-email-service
       - PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F= "{ print $2 }" | sed 's/[",]//g' | sed 's/version://g' | tr -d '[[:space:]]')
       - echo $PACKAGE_VERSION
   build:
