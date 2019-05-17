@@ -70,12 +70,12 @@ MAILGUN_DOMAIN=xxx
 ```
 http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/docs/
 ```
-###URL
+### URL
 ```
 http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/v1/
 ```
 
-###methods
+### Methods
   POST  email/send
   GET   ping
 
@@ -119,8 +119,7 @@ Codepipeline is used for automated deployment.
 2. Make tslint a little more strict.
 3. Implement API rate limiting
 4. Improve unit test code coverage
-5. Implement QueueMove in-memory cache to centerlized cachine like redis.
+5. Move in-memory cache to centerlized cachine like redis.
 6. Move in-memory cache to centerlized cachine like redis.
-6.  based solution using SQS and lambda , so that  we can push email requests to queue in case all email providers are down.
-6. attach SSL to  aws elastic load balancer and redirect http to https.
-7. 
+7. Implement Queue based solution using SQS and lambda , so that  we can push email requests to queue in case all email providers are down.
+8. attach SSL to  aws elastic load balancer and redirect http to https.
