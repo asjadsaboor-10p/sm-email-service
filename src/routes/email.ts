@@ -12,9 +12,9 @@ const router = new Router({
  * @apiName   Send Email
  * @apiGroup  Email
  *
- * @apiParam (Body) {String[]} to email addresses
- * @apiParam (Body) {String[]} [cc] cc email addresses
- * @apiParam (Body) {String[]} [bcc] to email addresses
+ * @apiParam (Body) {String[]{10}} to email addresses
+ * @apiParam (Body) {String[]{10}} [cc] cc email addresses
+ * @apiParam (Body) {String[]{10}} [bcc] to email addresses
  * @apiParam (Body) {String{250}} subject email subject
  * @apiParam (Body) {String{5000}} body email body in text
  *
