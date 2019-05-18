@@ -5,6 +5,7 @@ A simple email service
 ### Prerequisites
 
 1. docker and docker compose (lastest version) [Docker](https://www.docker.com/) & [Docker-Compose](https://docs.docker.com/compose/)
+2. Mailgun and Sendgrid accounts
 
 ### commands to get you started
 
@@ -115,11 +116,9 @@ Codepipeline is used for automated deployment.
 
 
 ## TODO List
-1. Implement logger and push logs to cloudwatch
+1. Implement logger and push logs to cloudwatch or similar service.
 2. Make tslint a little more strict.
 3. Implement API rate limiting
-4. Improve unit test code coverage
-5. Move in-memory cache to centerlized cachine like redis.
-6. Move in-memory cache to centerlized cachine like redis.
-7. Implement Queue based solution using SQS and lambda , so that  we can push email requests to queue in case all email providers are down.
-8. attach SSL to  aws elastic load balancer and redirect http to https.
+4. Add integration tests
+5. Implement Queue based solution for eg( SQS and lambda ), so that we can push requests to queue in case all email providers are down.
+6. attach SSL to  aws elastic load balancer and redirect http to https.

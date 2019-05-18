@@ -98,7 +98,8 @@
     "testRegex": "/tests/.*\\.(ts|tsx|js)$",
     "collectCoverageFrom": [
       "src/services/*.ts",
-      "src/validations/*.ts"
+      "src/validations/*.ts",
+      "src/classes/*.ts"
     ],
     "collectCoverage": true,
     "coverageReporters": [
