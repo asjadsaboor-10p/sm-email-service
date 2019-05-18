@@ -76,8 +76,8 @@
     "name": "SM Email Service",
     "version": "0.0.1",
     "description": "Sm Email Service apiDoc",
-    "url": "http://localhost:4001/api/v1",
-    "sampleUrl": "http://localhost:4001/api/v1",
+    "url": "http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/v1",
+    "sampleUrl": "http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/v1",
     "apidoc": {
       "title": "SM email service"
     }

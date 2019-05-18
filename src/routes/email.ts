@@ -26,6 +26,38 @@ const router = new Router({
  *       "message": "success"
  *     }
  *   }
+ * @apiErrorExample {json} Error-Response:
+ *   HTTP/1.1 400 Bad Request
+ *  {
+ *   "meta": {
+ *       "status": 400,
+ *       "message": "to email is required"
+ *    }
+ *  }
+ * @apiErrorExample {json} Error-Response:
+ *   HTTP/1.1 404 Not Found
+ *  {
+ *   "meta": {
+ *       "status": 400,
+ *       "message": "Emails should be unique between to,cc and bcc"
+ *    }
+ *  }
+ * @apiErrorExample {json} Error-Response:
+ *   HTTP/1.1 503 Service Unavailable
+ *  {
+ *   "meta": {
+ *       "status": 503,
+ *       "message": "Service unaavailable"
+ *    }
+ *  }
+ * @apiErrorExample {json} Error-Response:
+ *   HTTP/1.1 500 Internal Server Error
+ *  {
+ *   "meta": {
+ *       "status": 500,
+ *       "message": "Something wend wrong"
+ *    }
+ *  }
  */
 router.post('/send', sendEmail);
 
