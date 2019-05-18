@@ -16,7 +16,6 @@ const handler = async (ctx: Context, next: () => void) => {
     }
   } catch (err) {
     let metaData: IMetaData;
-
     if (err.isJoi) {
       metaData = handleJoiError(err);
     } else if (err.isBoom) {

@@ -5,6 +5,7 @@ import * as cors from 'koa2-cors';
 import * as jsonMiddleware from 'koa-json';
 import * as staticServe from 'koa-static-server';
 import * as path from 'path';
+import * as Boom from 'boom';
 import config from '../config';
 
 // middlewares
@@ -17,7 +18,14 @@ const app = new Koa();
 
 app.use(staticServe({ rootDir: docPath, rootPath: '/api/docs' }));
 app.use(helmet());
-app.use(koaBodyparser());
+app.use(
+  koaBodyparser({
+    onerror: (err, ctx) => {
+      console.error(err);
+      ctx.throw('Cannot parse body', 422);
+    },
+  }),
+);
 app.use(
   cors({
     // TODO
