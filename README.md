@@ -114,6 +114,15 @@ API is deployed on AWS Elastic Container service and attached to elastic load ba
 
 Codepipeline is used for automated deployment.
 
+## Problem Statement and Solution
+
+* **Implement a email service using 2 service providers, such that if one goes down that service can quickly switch to the other**
+
+When a user call REST API to send emails, first the request is send using the primary server.If the request of primary server fails, a key is set in in-memmory cache to deactivate primary  server for few minutes and secondary email service will be used till the primaryserver key expires.
+
+What will happen if both providers are down? A rare possibility, but in this case all request can be send to a SQS and a lambda can be attached to SQS to retry these requests. 
+
+Note: SQS is not yet implemented.
 
 ## TODO List
 1. Implement logger and push logs to cloudwatch or similar service.
@@ -122,3 +131,5 @@ Codepipeline is used for automated deployment.
 4. Add integration tests
 5. Implement Queue based solution for eg( SQS and lambda ), so that we can push requests to queue in case all email providers are down.
 6. attach SSL to  aws elastic load balancer and redirect http to https.
+7. Replace in memory cache with centeralized cache like redis.
+8. Enable auto scaling in ECS to handle heavy traffic.
