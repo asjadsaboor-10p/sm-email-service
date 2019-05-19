@@ -138,5 +138,5 @@ Note: SQS is not yet implemented.
 4. Add integration tests
 5. Implement Queue based solution for eg( SQS and lambda ), so that we can push requests to queue in case all email providers are down.
 6. attach SSL to  aws elastic load balancer and redirect http to https.
-7. Replace in memory cache with centeralized cache like redis.
-8. Enable auto scaling in ECS to handle heavy traffic.
+7. Enable auto scaling in ECS to handle heavy traffic.
+8. Whitelabel / authenticate sender domain.
