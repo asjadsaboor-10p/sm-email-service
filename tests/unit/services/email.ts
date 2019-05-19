@@ -24,7 +24,7 @@ describe('Email Service', () => {
         to: ['abc123'],
       };
       const error = new Error(
-        'child "to email" fails because [to email at position 0 fails because [0 must be a valid email]]',
+        'child "to email" fails because [to email at position 0 fails because [to must be a valid email]]',
       );
       error.name = 'ValidationError';
       return expect(sendEmail(payload)).rejects.toEqual(error);
@@ -46,7 +46,7 @@ describe('Email Service', () => {
         cc: ['abc'],
       };
       const error = new Error(
-        'child "cc email" fails because [cc email at position 0 fails because [0 must be a valid email]]',
+        'child "cc email" fails because [cc email at position 0 fails because [cc must be a valid email]]',
       );
       error.name = 'ValidationError';
       return expect(sendEmail(payload)).rejects.toEqual(error);
@@ -70,7 +70,7 @@ describe('Email Service', () => {
         bcc: ['abc'],
       };
       const error = new Error(
-        'child "bcc email" fails because [bcc email at position 0 fails because [0 must be a valid email]]',
+        'child "bcc email" fails because [bcc email at position 0 fails because [bcc must be a valid email]]',
       );
       error.name = 'ValidationError';
       return expect(sendEmail(payload)).rejects.toEqual(error);

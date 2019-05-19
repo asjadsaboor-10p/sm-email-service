@@ -6,7 +6,8 @@ export const sendEmail: Joi.SchemaMap = {
     .items(
       Joi.string()
         .required()
-        .email(),
+        .email()
+        .label('to'),
     )
     .min(1)
     .max(10)
@@ -16,7 +17,8 @@ export const sendEmail: Joi.SchemaMap = {
     .items(
       Joi.string()
         .required()
-        .email(),
+        .email()
+        .label('cc'),
     )
     .min(0)
     .max(10)
@@ -26,7 +28,8 @@ export const sendEmail: Joi.SchemaMap = {
     .items(
       Joi.string()
         .required()
-        .email(),
+        .email()
+        .label('bcc'),
     )
     .min(0)
     .max(10)
