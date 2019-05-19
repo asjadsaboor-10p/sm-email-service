@@ -28,7 +28,7 @@ A collection of useful commands which might be helpful
 3. `npm run format:check`
 4. `npm run format:fix:all`
 
-### run tests
+### Run tests
 
 1. `npm run test`
 
@@ -36,7 +36,7 @@ A collection of useful commands which might be helpful
 
 1. `npm run apidocs`
 
-### debug
+### Debug
 
 1. uncomment following line from docker-compose.yml
 
@@ -76,17 +76,16 @@ MAILGUN_DOMAIN=xxx
 ## API Details
 
 ### API Docs
-```
-http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/docs/
-```
+
+[http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/docs/](http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/docs/)
+
 ### URL
-```
-http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/v1/
-```
+
+[http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/v1/](http://sm-email-service-2058030217.us-east-1.elb.amazonaws.com/api/v1/)
+
 
 ### Methods
-  POST  email/send
-  GET   ping
+  POST     email/send
 
 ### Example Request to send  email
 
