@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "A simple email service",
-  "main": "index.js",
+  "main": "bin/server",
   "scripts": {
     "start": "node bin/server",
     "start:docker": "docker-compose up -d",

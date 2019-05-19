@@ -28,6 +28,14 @@ A collection of useful commands which might be helpful
 3. `npm run format:check`
 4. `npm run format:fix:all`
 
+### run tests
+
+1. `npm run test`
+
+### Create apidocs
+
+1. `npm run apidocs`
+
 ### debug
 
 1. uncomment following line from docker-compose.yml
@@ -126,7 +134,7 @@ Note: SQS is not yet implemented.
 
 ## TODO List
 1. Implement logger and push logs to cloudwatch or similar service.
-2. Make tslint a little more strict.
+2. Make tslint a little more strict and run lint/test in CI/CD.
 3. Implement API rate limiting
 4. Add integration tests
 5. Implement Queue based solution for eg( SQS and lambda ), so that we can push requests to queue in case all email providers are down.
